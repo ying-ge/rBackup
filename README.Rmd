@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/rBackup)](https://CRAN.R-project.org/package=rBackup)
 [![R-CMD-check](https://github.com/ying-ge/rBackup/workflows/R-CMD-check/badge.svg)](https://github.com/ying-ge/rBackup/actions)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/ying-ge/rBackup/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ying-ge/rBackup/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/ying-ge/rBackup/graph/badge.svg)](https://app.codecov.io/gh/ying-ge/rBackup)
 <!-- badges: end -->
 
 > **The First Comprehensive R Package Backup and Offline Management System**
