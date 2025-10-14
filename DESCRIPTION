@@ -1,0 +1,38 @@
+Package: rBackup
+Type: Package
+Title: Comprehensive R Package Backup and Offline Management System
+Version: 0.1.0
+Authors@R: c(person("Ying", "Ge", email = "geying.tju@gmail.com", role = c("aut", "cre"),comment = c(ORCID = "0000-0001-6667-409X")))
+Description: A comprehensive backup and offline management system for R packages 
+    from multiple sources (GitHub, CRAN, Bioconductor). Unlike installation-only 
+    tools, rBackup focuses on creating reliable offline archives, automated backup 
+    workflows, and enterprise-grade package management. Features include automated 
+    CI/CD integration, compliance reporting, and seamless integration with existing 
+    R package management tools.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: 
+    R (>= 3.5.0)
+Imports:
+    jsonlite,
+    httr,
+    curl,
+    tools,
+    utils,
+    yaml,
+    digest,
+    BiocManager
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    withr,
+    devtools,
+    remotes
+VignetteBuilder: knitr
+URL: https://github.com/ying-ge/rBackup
+BugReports: https://github.com/ying-ge/rBackup/issues
+Config/testthat/edition: 3
