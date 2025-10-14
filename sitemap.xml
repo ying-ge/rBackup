@@ -1,0 +1,15 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/backup_cran_packages.html</loc></url>
+<url><loc>/reference/backup_github_packages.html</loc></url>
+<url><loc>/reference/batch_install_from_backup.html</loc></url>
+<url><loc>/reference/clean_old_backups.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/install_from_backup.html</loc></url>
+<url><loc>/reference/list_backups.html</loc></url>
+<url><loc>/reference/rBackup-package.html</loc></url>
+<url><loc>/reference/verify_backup_integrity.html</loc></url>
+</urlset>
+
