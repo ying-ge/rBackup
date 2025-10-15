@@ -45,8 +45,183 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-A comprehensive backup and offline management system for R packages from multiple sources (GitHub, CRAN, Bioconductor). Unlike installation-only tools, rBackup focuses on creating reliable offline archives, automated backup workflows, and enterprise-grade package management. Features include automated CI/CD integration, compliance reporting, and seamless integration with existing R package management tools.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="rbackup-">rBackup <img src="reference/figures/logo.png" align="right" height="139"><a class="anchor" aria-label="anchor" href="#rbackup-"></a>
+</h1></div>
+<!-- badges: start -->
+
+<blockquote>
+<p><strong>The First Comprehensive R Package Backup and Offline Management System</strong></p>
+</blockquote>
+<p><strong>rBackup</strong> is not just another package installer—it’s a complete backup and offline management ecosystem for R packages. While tools like <code>pak</code> and <code>remotes</code> focus on installation, rBackup ensures your packages are safely archived, monitored, and available offline when you need them most.</p>
+<div class="section level2">
+<h2 id="id_-why-rbackup">🚀 Why rBackup?<a class="anchor" aria-label="anchor" href="#id_-why-rbackup"></a>
+</h2>
+<ul>
+<li>
+<strong>📦 Universal Backup</strong>: GitHub, CRAN, Bioconductor—all in one place</li>
+<li>
+<strong>🏢 Enterprise Ready</strong>: Compliance reports, security scanning, provenance tracking<br>
+</li>
+<li>
+<strong>🤖 Fully Automated</strong>: CI/CD integration, scheduled backups, version monitoring</li>
+<li>
+<strong>🔌 Ecosystem Integration</strong>: Works with renv, packrat, Docker, and more</li>
+<li>
+<strong>💾 Offline First</strong>: Create self-contained, portable R environments</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of rBackup from GitHub with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ying-ge/rBackup"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ying-ge/rBackup" class="external-link">rBackup</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Backup GitHub packages</span></span>
+<span><span class="va">github_repos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tidyverse/ggplot2"</span>, <span class="st">"rstudio/shiny"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/backup_github_packages.html">backup_github_packages</a></span><span class="op">(</span><span class="va">github_repos</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Backup CRAN packages</span></span>
+<span><span class="va">cran_packages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>, <span class="st">"stringr"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/backup_cran_packages.html">backup_cran_packages</a></span><span class="op">(</span><span class="va">cran_packages</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install from backups</span></span>
+<span><span class="fu"><a href="reference/install_from_backup.html">install_from_backup</a></span><span class="op">(</span><span class="st">"tidyverse/ggplot2"</span>, type <span class="op">=</span> <span class="st">"github"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/install_from_backup.html">install_from_backup</a></span><span class="op">(</span><span class="st">"dplyr"</span>, type <span class="op">=</span> <span class="st">"cran"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create local repository</span></span>
+<span><span class="fu">create_local_repo</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+</h2>
+<div class="section level3">
+<h3 id="id_-multi-source-backup">📁 Multi-Source Backup<a class="anchor" aria-label="anchor" href="#id_-multi-source-backup"></a>
+</h3>
+<ul>
+<li>
+<strong>GitHub repositories</strong>: Complete source code with metadata</li>
+<li>
+<strong>CRAN packages</strong>: Source packages with version information<br>
+</li>
+<li>
+<strong>Bioconductor packages</strong>: Specialized bioinformatics packages</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="id_️-enterprise-features">🛠️ Enterprise Features<a class="anchor" aria-label="anchor" href="#id_%EF%B8%8F-enterprise-features"></a>
+</h3>
+<ul>
+<li>
+<strong>Automated workflows</strong>: GitHub Actions, GitLab CI, Jenkins</li>
+<li>
+<strong>Compliance reporting</strong>: License tracking, security scanning</li>
+<li>
+<strong>Version monitoring</strong>: Detect package updates automatically</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="id_-use-cases">💼 Use Cases<a class="anchor" aria-label="anchor" href="#id_-use-cases"></a>
+</h3>
+<p><strong>🏢 Enterprise Environments</strong></p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Setup automated backup monitoring</span></span>
+<span><span class="fu">setup_backup_monitoring</span><span class="op">(</span><span class="st">"company_packages.yml"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generate compliance report</span></span>
+<span><span class="fu">generate_compliance_report</span><span class="op">(</span><span class="st">"backups/"</span>, include_security <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><strong>🔬 Research Reproducibility</strong></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Backup specific versions for reproducible research</span></span>
+<span><span class="fu">backup_research_environment</span><span class="op">(</span><span class="st">"research_packages.txt"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create Docker container with backed up packages</span></span>
+<span><span class="fu">generate_dockerfile</span><span class="op">(</span><span class="st">"research_backup/"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>🚀 CI/CD Pipelines</strong></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Generate GitHub Actions workflow</span></span>
+<span><span class="fu">generate_backup_workflow</span><span class="op">(</span>schedule <span class="op">=</span> <span class="st">"0 2 * * 0"</span><span class="op">)</span>  <span class="co"># Weekly backups</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<ul>
+<li><a href="https://ying-ge.github.io/rBackup/articles/getting-started.html" class="external-link">Getting Started</a></li>
+<li><a href="https://ying-ge.github.io/rBackup/articles/github-backup.html" class="external-link">GitHub Backup Guide</a></li>
+<li><a href="https://ying-ge.github.io/rBackup/articles/automation.html" class="external-link">Automation Setup</a></li>
+<li><a href="https://ying-ge.github.io/rBackup/articles/enterprise.html" class="external-link">Enterprise Features</a></li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="comparison-with-other-tools">Comparison with Other Tools<a class="anchor" aria-label="anchor" href="#comparison-with-other-tools"></a>
+</h2>
+<table class="table">
+<thead><tr class="header">
+<th>Feature</th>
+<th>rBackup</th>
+<th>pak</th>
+<th>remotes</th>
+<th>miniCRAN</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>GitHub Backup</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>CRAN Backup</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Offline Installation</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Automated Workflows</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>Enterprise Features</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>Please see <a href="CONTRIBUTING.html">CONTRIBUTING.md</a> for details on how to contribute to this project.</p>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>MIT © <a href="LICENSE.html">Ying Ge</a></p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -79,7 +254,16 @@ A comprehensive backup and offline management system for R packages from multipl
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=rBackup" class="external-link"><img src="https://www.r-pkg.org/badges/version/rBackup" alt="CRAN status"></a></li>
+<li><a href="https://github.com/ying-ge/rBackup/actions" class="external-link"><img src="https://github.com/ying-ge/rBackup/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/ying-ge/rBackup/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/ying-ge/rBackup/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/ying-ge/rBackup" class="external-link"><img src="https://codecov.io/gh/ying-ge/rBackup/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
